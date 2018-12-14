@@ -9,8 +9,8 @@ class Piano extends React.Component {
         const noteOn = note => {
             synth.triggerAttackRelease(note);
         };
-        const noteOff = () => {
-            synth.triggerRelease();
+        const noteOff = note => {
+            synth.triggerRelease(note);
         };
         const synth = new Tone.PolySynth()
             .chain(Tone.Master)
