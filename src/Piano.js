@@ -5,13 +5,18 @@ import Key from './Key';
 
 class Piano extends React.Component {
     render() {
-        const synth = new Tone.PolySynth().toMaster();
+        const reverb = new Tone.JCReverb(0.7).toMaster();
         const noteOn = note => {
             synth.triggerAttackRelease(note);
         };
         const noteOff = () => {
             synth.triggerRelease();
         };
+        const synth = new Tone.PolySynth()
+            .chain(Tone.Master)
+            .chain(reverb)
+            .toMaster();
+
         const keys = [
             'B3',
             'C4',
