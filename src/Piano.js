@@ -5,7 +5,8 @@ import Key from './Key';
 
 class Piano extends React.Component {
     render() {
-        const reverb = new Tone.JCReverb(0.7).toMaster();
+        const reverb = new Tone.Freeverb(0.7).toMaster();
+        const filter = new Tone.Filter().toMaster();
         const noteOn = note => {
             synth.triggerAttackRelease(note);
         };
@@ -13,8 +14,10 @@ class Piano extends React.Component {
             synth.triggerRelease(note);
         };
         const synth = new Tone.PolySynth()
+            .chain(filter)
             .chain(Tone.Master)
             .chain(reverb)
+            .chain(filter)
             .toMaster();
 
         const keys = [
