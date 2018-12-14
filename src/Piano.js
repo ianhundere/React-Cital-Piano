@@ -1,47 +1,56 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Tone from 'tone';
 
 import Key from './Key';
 
-class Piano extends React.Component {
-    render() {
+class Piano extends Component {
+    constructor(props) {
+        super(props);
         const reverb = new Tone.Freeverb(0.7).toMaster();
         const filter = new Tone.Filter().toMaster();
-        const noteOn = note => {
-            synth.triggerAttackRelease(note);
-        };
-        const noteOff = note => {
-            synth.triggerRelease(note);
-        };
-        const synth = new Tone.PolySynth()
+        this.synth = new Tone.PolySynth()
             .chain(filter)
             .chain(Tone.Master)
             .chain(reverb)
             .chain(filter)
             .toMaster();
+        this.keyTranslation = {
+            a: 'B3',
+            s: 'C4',
+            e: 'C#4',
+            d: 'D4',
+            r: 'D#4',
+            f: 'E4',
+            g: 'F4',
+            y: 'F#4',
+            h: 'G4',
+            u: 'G#4',
+            j: 'A4',
+            i: 'A#4',
+            k: 'B4'
+        };
+    }
 
-        const keys = [
-            'B3',
-            'C4',
-            'D4',
-            'E4',
-            'F4',
-            'G4',
-            'A4',
-            'B4',
-            'C5',
-            'D5',
-            'E5',
-            'F5',
-            'G5'
-        ];
-        const keyList = keys.map(key => (
+    noteOn = note => {
+        this.synth.triggerAttackRelease(note);
+    };
+    noteOff = note => {
+        this.synth.triggerRelease(note);
+    };
+    render() {
+        if (this.props.pianoKey) {
+            console.log(this.props.pianoKey);
+            this.synth.triggerAttackRelease(
+                this.keyTranslation[this.props.pianoKey]
+            );
+        }
+        const keyList = Object.values(this.keyTranslation).map(key => (
             <Key
                 key={key}
-                synth={synth}
+                synth={this.synth}
                 note={key}
-                noteOn={noteOn}
-                noteOff={noteOff}
+                noteOn={this.noteOn}
+                noteOff={this.noteOff}
             />
         ));
         return (

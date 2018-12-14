@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 // import Tone from 'tone';
 
 // import Piano from './Piano';
 
-class Key extends React.Component {
+class Key extends Component {
     render() {
         return (
             <button
