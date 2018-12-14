@@ -4,21 +4,15 @@ import Tone from 'tone';
 import Key from './Key';
 
 class Piano extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = { synth: new Tone.PolySynth().toMaster() };
-    }
-    play(note) {
-        this.synth.triggerAttack(note);
-    }
-    release() {
-        this.synth.triggerRelease();
-    }
-    // componentDidUpdate(props) {}
-
     render() {
-        let keys = [
+        const synth = new Tone.PolySynth().toMaster();
+        const noteOn = note => {
+            synth.triggerAttackRelease(note);
+        };
+        const noteOff = () => {
+            synth.triggerRelease();
+        };
+        const keys = [
             'B3',
             'C4',
             'D4',
@@ -33,11 +27,13 @@ class Piano extends React.Component {
             'F5',
             'G5'
         ];
-        let keyList = keys.map(key => (
+        const keyList = keys.map(key => (
             <Key
-                onPress={() => this.play(this)}
-                onRelease={() => this.release(this)}
+                key={key}
+                synth={synth}
                 note={key}
+                noteOn={noteOn}
+                noteOff={noteOff}
             />
         ));
         return (
