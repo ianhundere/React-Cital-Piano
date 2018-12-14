@@ -18,12 +18,33 @@ class Piano extends React.Component {
     // componentDidUpdate(props) {}
 
     render() {
+        let keys = [
+            'B3',
+            'C4',
+            'D4',
+            'E4',
+            'F4',
+            'G4',
+            'A4',
+            'B4',
+            'C5',
+            'D5',
+            'E5',
+            'F5',
+            'G5'
+        ];
+        let keyList = keys.map(key => (
+            <Key
+                onPress={this.play.bind(this)}
+                onRelease={this.release.bind(this)}
+                note={key}
+            />
+        ));
         return (
-            <div>
-                <button>
-                    <Key synth={this.state.synth} pitch="C3" />
-                </button>
-                <p>yo</p>
+            <div
+                ref={node => node && node.setAttribute('touch-action', 'none')}
+            >
+                {keyList}
             </div>
         );
     }
