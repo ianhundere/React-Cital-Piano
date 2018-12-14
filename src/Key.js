@@ -12,7 +12,21 @@ class Key extends React.Component {
         console.log(`turn note off with pitch ${this.props.pitch}`);
     }
     render() {
-        return;
+        return <button>click me</button>;
     }
 }
 export default Key;
+
+// let synth = new Tone.PolySynth().toMaster();
+
+// //attach a listener to all of the buttons
+// document.querySelectorAll('button').forEach(function (button) {
+//     button.addEventListener('mousedown', function (e) {
+//         //play the note on mouse down
+//         synth.triggerAttack(e.target.textContent);
+//     });
+//     button.addEventListener('mouseup', function (e) {
+//         //release on mouseup
+//         synth.triggerRelease();
+//     });
+// });
