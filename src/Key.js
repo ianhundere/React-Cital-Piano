@@ -17,7 +17,7 @@ class Key extends React.Component {
 }
 export default Key;
 
-// let synth = new Tone.PolySynth().toMaster();
+// let synth = new Tone.Poly().toMaster();
 
 // //attach a listener to all of the buttons
 // document.querySelectorAll('button').forEach(function (button) {

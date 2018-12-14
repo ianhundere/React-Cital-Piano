@@ -35,8 +35,8 @@ class Piano extends React.Component {
         ];
         let keyList = keys.map(key => (
             <Key
-                onPress={this.play.bind(this)}
-                onRelease={this.release.bind(this)}
+                onPress={() => this.play(this)}
+                onRelease={() => this.release(this)}
                 note={key}
             />
         ));
