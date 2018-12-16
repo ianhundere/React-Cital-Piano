@@ -10,6 +10,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            currentSongIndex: 1,
             songs : [
                 {
                     title: 'jingle bells',
@@ -31,7 +32,8 @@ class App extends Component {
         return (
             <div className="App">
                 <Sheetmusic
-                content= {'music goes here'} />
+                title= {this.state.songs[this.state.currentSongIndex].title}
+                content= {this.state.songs[this.state.currentSongIndex].content} />
                 <Piano />
                 <SongList 
                 songs={this.state.songs.map(song => song.title)}
