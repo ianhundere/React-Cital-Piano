@@ -7,17 +7,34 @@ import SongList from './SongList';
 import './App.css';
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            songs : [
+                {
+                    title: 'jingle bells',
+                    content: 'E-E-E |  E-E-E |  E-G-C-D-E, F-F-F-F | F-E-E-E | E-D-D-E | D-G'
+                },
+
+                {
+                    title: 'deck the halls',
+                    content: 'G-F-E-D | C-D-E-C'
+                },
+                {
+                    title: 'havana',
+                    content: 'C-E-E-C-C-A'
+                }
+            ]
+        }
+    }
     render() {
         return (
             <div className="App">
-                <Sheetmusic />
+                <Sheetmusic
+                content= {'music goes here'} />
                 <Piano />
                 <SongList 
-                songs={[
-                    'jingle bells',
-                    'deck the halls',
-                    'havana'
-                ]}
+                songs={this.state.songs.map(song => song.title)}
                     />
             </div>
         );
