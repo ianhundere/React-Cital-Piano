@@ -7,6 +7,8 @@ const Sheetmusic = (props) => {
 
         <div className="sheetmusic">
             <h2>Jingle Bells</h2>
+            <p>E-E-E |  E-E-E |  E-G-C-D-E</p>
+            <p>F-F-F-F | F-E-E-E | E-D-D-E | D-G </p>
         </div>
     )
 }
