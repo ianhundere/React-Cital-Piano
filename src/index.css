@@ -28,3 +28,13 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
+
+
+.sheetmusic {
+  outline: 2px solid black;
+  width: 20%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 30px;
+}
