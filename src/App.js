@@ -33,7 +33,7 @@ class App extends Component {
             let key = this.keyTranslation[e.key];
             console.log(key);
             console.log(this.state.newKeys);
-            let isNew = this.state.newKeys.includes(key);
+            let isNew = !this.state.newKeys.includes(key);
             if (isNew) {
                 this.setState({ newKeys: [...this.state.newKeys, key] });
             } else {
@@ -61,10 +61,36 @@ class App extends Component {
                 <Piano
                     pianoKey={this.state.key}
                     allKeys={Object.values(this.keyTranslation)}
+                    newKeys={this.state.newKeys}
+                    oldKeys={this.state.oldKeys}
+                    insertKey={this._insertKey}
+                    extractKey={this._extractKey}
                 />
             </div>
         );
     }
+    _insertKey = key => {
+        this.setState({
+            newKeys: this.state.newKeys.filter(note => {
+                if (note === key) {
+                    return false;
+                } else {
+                    return true;
+                }
+            })
+        });
+    };
+    _extractKey = key => {
+        this.setState({
+            oldKeys: this.state.oldKeys.filter(note => {
+                if (note === key) {
+                    return false;
+                } else {
+                    return true;
+                }
+            })
+        });
+    };
 }
 
 export default App;
