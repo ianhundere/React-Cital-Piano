@@ -3,12 +3,10 @@ import Piano from './Piano';
 import Sheetmusic from './Sheetmusic';
 import SongList from './SongList';
 
-
 import './App.css';
 
 class App extends Component {
     constructor(props) {
-
         console.log(document);
         super(props);
         this.state = {
@@ -16,11 +14,12 @@ class App extends Component {
             newKeys: [],
             oldKeys: [],
             currentSongId: 1,
-            songs : [
+            songs: [
                 {
                     id: 1,
                     title: 'jingle bells',
-                    content: 'E-E-E |  E-E-E |  E-G-C-D-E, F-F-F-F | F-E-E-E | E-D-D-E | D-G'
+                    content:
+                        'E-E-E |  E-E-E |  E-G-C-D-E, F-F-F-F | F-E-E-E | E-D-D-E | D-G'
                 },
 
                 {
@@ -36,19 +35,31 @@ class App extends Component {
             ]
         };
         this.keyTranslation = {
-            a: 'B3',
-            s: 'C4',
-            e: 'C#4',
-            d: 'D4',
-            r: 'D#4',
-            f: 'E4',
-            g: 'F4',
-            y: 'F#4',
-            h: 'G4',
-            u: 'G#4',
-            j: 'A4',
-            i: 'A#4',
-            k: 'B4'
+            q: 'C5',
+            2: 'C#5',
+            w: 'D5',
+            3: 'D#5',
+            e: 'E5',
+            r: 'F5',
+            5: 'F#5',
+            t: 'G5',
+            6: 'G#5',
+            y: 'A5',
+            7: 'A#5',
+            u: 'B5',
+            i: 'C6',
+            z: 'C4',
+            s: 'C#4',
+            x: 'D4',
+            d: 'D#4',
+            c: 'E4',
+            v: 'F4',
+            g: 'F#4',
+            b: 'G4',
+            h: 'G#4',
+            n: 'A4',
+            j: 'A#4',
+            m: 'B4'
         };
     }
     componentDidMount() {
@@ -77,25 +88,31 @@ class App extends Component {
             console.log();
             // console.log(e.key);
         });
-
-        
-       
-            
-        
-
     }
     render() {
         return (
             <div className="App">
-
-                <Piano
-                    pianoKey={this.state.key}
-                    allKeys={Object.values(this.keyTranslation)}
-                    newKeys={this.state.newKeys}
-                    oldKeys={this.state.oldKeys}
-                    insertKey={this._insertKey}
-                    extractKey={this._extractKey}
-                />
+                <div>
+                    <Sheetmusic
+                        title={this._getById(this.state.currentSongId).title}
+                        content={
+                            this._getById(this.state.currentSongId).content
+                        }
+                    />
+                    <SongList
+                        // songs={this.state.songs.map(song => song.title)}
+                        songs={this.state.songs}
+                        handleClick={this._setCurrentSongId}
+                    />
+                    <Piano
+                        pianoKey={this.state.key}
+                        allKeys={Object.values(this.keyTranslation)}
+                        newKeys={this.state.newKeys}
+                        oldKeys={this.state.oldKeys}
+                        insertKey={this._insertKey}
+                        extractKey={this._extractKey}
+                    />
+                </div>
             </div>
         );
     }
@@ -122,33 +139,19 @@ class App extends Component {
         });
     };
 
-                <Sheetmusic
-                title= {this._getById(this.state.currentSongId).title}
-                content= {this._getById(this.state.currentSongId).content} />
-                <Piano />
-                <SongList 
-                // songs={this.state.songs.map(song => song.title)}
-                songs= {this.state.songs}
-                handleClick={this._setCurrentSongId}
-                    />
-           
-        );
-    }
-
-    _setCurrentSongId = (songId) => {
-        console.log(`this current song id is ${songId}`)
+    _setCurrentSongId = songId => {
+        console.log(`this current song id is ${songId}`);
         this.setState({
             currentSongId: songId
-        })
-    }
+        });
+    };
 
-    _getById = (idToFind) => {
+    _getById = idToFind => {
         const theOne = this.state.songs.find(song => {
-            return song.id === idToFind
+            return song.id === idToFind;
         });
         return theOne;
-    }
-
+    };
 }
 
 export default App;
