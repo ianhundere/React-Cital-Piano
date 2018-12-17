@@ -6,7 +6,13 @@ const SongList = (props) => {
         <ul>
             {
              props.songs.map(song => {
-                 return <li><a>{song}</a></li>
+                 return <li>
+                     <a onClick={() =>{
+                         console.log(song.id);
+                         props.handleClick(song.id);
+                     }}>{song.title}
+                     </a>
+                     </li>
              })   
             }
         </ul>
