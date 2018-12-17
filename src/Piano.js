@@ -1,57 +1,57 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Tone from 'tone';
 
 import Key from './Key';
 
-class Piano extends React.Component {
-    render() {
-        const reverb = new Tone.Freeverb(0.7).toMaster();
-        const filter = new Tone.Filter().toMaster();
-        const noteOn = note => {
-            synth.triggerAttackRelease(note);
-        };
-        const noteOff = note => {
-            synth.triggerRelease(note);
-        };
-        const synth = new Tone.PolySynth()
+class Piano extends Component {
+    constructor(props) {
+        super(props);
+        const reverb = new Tone.Freeverb(3).toMaster();
+        const filter = new Tone.Filter(800, 'lowpass').toMaster();
+        this.synth = new Tone.PolySynth()
             .chain(filter)
-            .chain(Tone.Master)
             .chain(reverb)
-            .chain(filter)
             .toMaster();
+    }
 
-        const keys = [
-            'B3',
-            'C4',
-            'D4',
-            'E4',
-            'F4',
-            'G4',
-            'A4',
-            'B4',
-            'C5',
-            'D5',
-            'E5',
-            'F5',
-            'G5'
-        ];
-        const keyList = keys.map(key => (
-            <Key
-                key={key}
-                synth={synth}
-                note={key}
-                noteOn={noteOn}
-                noteOff={noteOff}
-            />
-        ));
-        return (
-            <div
-                ref={node => node && node.setAttribute('touch-action', 'none')}
-            >
-                {keyList}
-            </div>
-        );
+    noteOn = note => {
+        this.synth.triggerAttackRelease(note);
+    };
+    noteOff = note => {
+        this.synth.triggerRelease(note);
+    };
+
+    render() {
+        if (this.props.oldKeys) {
+            this.props.oldKeys.forEach(key => {
+                this.synth.triggerRelease(key);
+                this.props.extractKey(key);
+            });
+        }
+        if (this.props.newKeys) {
+            this.props.newKeys.forEach(key => {
+                this.synth.triggerAttackRelease(key);
+                this.props.insertKey(key);
+            });
+            const keyList = this.props.allKeys.map(key => (
+                <Key
+                    key={key}
+                    synth={this.synth}
+                    note={key}
+                    noteOn={this.noteOn}
+                    noteOff={this.noteOff}
+                />
+            ));
+            return (
+                <div
+                    ref={node =>
+                        node && node.setAttribute('touch-action', 'none')
+                    }
+                >
+                    {keyList}
+                </div>
+            );
+        }
     }
 }
-
 export default Piano;
