@@ -8,7 +8,9 @@ class App extends Component {
         console.log(document);
         super(props);
         this.state = {
-            key: []
+            key: [],
+            newKeys: [],
+            oldKeys: []
         };
         this.keyTranslation = {
             a: 'B3',
@@ -28,8 +30,26 @@ class App extends Component {
     }
     componentDidMount() {
         document.addEventListener('keydown', e => {
+            let key = this.keyTranslation[e.key];
+            console.log(key);
+            console.log(this.state.newKeys);
+            let isNew = this.state.newKeys.includes(key);
+            if (isNew) {
+                this.setState({ newKeys: [...this.state.newKeys, key] });
+            } else {
+                this.setState({
+                    newKeys: this.state.newKeys.filter(k => {
+                        return k !== key;
+                    })
+                });
+            }
+            console.log();
+            // console.log(e.key);
+        });
+        document.addEventListener('keyup', e => {
+            const key = this.keyTranslation[e.key];
             this.setState({
-                key: [...this.state.key, this.keyTranslation[e.key]]
+                oldKeys: [...this.state.oldKeys, key]
             });
             console.log();
             // console.log(e.key);
