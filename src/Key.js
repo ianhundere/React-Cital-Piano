@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-// import Tone from 'tone';
 
-// import Piano from './Piano';
+import './index.css';
 
 class Key extends Component {
     render() {
         return (
-            <button
-                onMouseDown={() => this.props.noteOn(this.props.note)}
-                onMouseUp={() => this.props.noteOff(this.props.note)}
-                onKeyDown={() => this.props.noteOn(this.props.note)}
-                onKeyUp={() => this.props.noteOff(this.props.note)}
-            >
-                {this.props.note}
-            </button>
+            <div className="container">
+                <button
+                    className="key"
+                    onMouseDown={() => this.props.noteOn(this.props.note)}
+                    onMouseUp={() => this.props.noteOff(this.props.note)}
+                    onKeyDown={() => this.props.noteOn(this.props.note)}
+                    onKeyUp={() => this.props.noteOff(this.props.note)}
+                >
+                    {this.props.note}
+                </button>
+            </div>
         );
     }
 }
