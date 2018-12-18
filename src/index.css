@@ -14,6 +14,10 @@ body,
     width: 100%;
 }
 
+.change {
+    background-color: gray;
+}
+
 .key {
     border-top: 1px solid #3ac8da;
     cursor: pointer;

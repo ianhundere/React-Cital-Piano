@@ -7,6 +7,9 @@ import './index.css';
 class Piano extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            currentNotes: []
+        };
 
         const reverb = new Tone.Reverb(10).toMaster();
         const filter = new Tone.Filter(100, 'lowpass').toMaster();
@@ -24,27 +27,44 @@ class Piano extends Component {
     }
 
     noteOn = note => {
-        this.synth.triggerAttackRelease(note);
+        this.setState(
+            { currentNotes: [...this.state.currentNotes, note] },
+            () => {
+                this.synth.triggerAttackRelease(note);
+                console.log(note);
+            }
+        );
     };
     noteOff = note => {
-        this.synth.triggerRelease(note);
+        this.setState(
+            {
+                currentNotes: this.state.currentNotes.filter(n => {
+                    return n !== note;
+                })
+            },
+            () => {
+                this.synth.triggerRelease(note);
+                console.log('TURNED OFF A NOTE!');
+            }
+        );
     };
 
     render() {
         if (this.props.oldKeys) {
             this.props.oldKeys.forEach(key => {
-                this.synth.triggerRelease(key);
+                // this.synth.triggerRelease(key);
+                this.noteOff(key);
                 this.props.extractKey(key);
             });
         }
         if (this.props.newKeys) {
             this.props.newKeys.forEach(key => {
-                this.synth.triggerAttackRelease(key);
+                // this.synth.triggerAttackRelease(key);
+                this.noteOn(key);
                 this.props.insertKey(key);
             });
             const keyList = this.props.allKeys.map(key => (
                 <Key
-                
                     key={key}
                     synth={this.synth}
                     note={key}
