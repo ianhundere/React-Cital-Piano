@@ -68,34 +68,34 @@ class App extends Component {
             
         };
 
-        // this.keyNames = [
-        //     {key: 5, val: 'C4'},
-        //     {key: s, val: 'C#4'},
-        //     {key:x,val: 'D4'},
-        //     {key:d,val: 'D#4'},
-        //     {key:c,val: 'E4'},
-        //     {key:v,val: 'F4'},
-        //     {key:g,val: 'F#4'},
-        //     {key:b,val: 'G4'},
-        //     {key:h,val: 'G#4'},
-        //     {key:n,val: 'A4'},
-        //     {key:j,val: 'A#4'},
-        //     {key:m,val: 'B4'},
-        //     {key:q,val: 'C5'},
-        //     {key:2,val: 'C#5'},
-        //     {key:w,val: 'D5'},
-        //     {key:3,val: 'D#5'},
-        //     {key:e,val: 'E5'},
-        //     {key:r,val: 'F5'},
-        //     {key:5,val: 'F#5'},
-        //     {key:t,val: 'G5'},
-        //     {key:6,val: 'G#5'},
-        //     {key:y,val: 'A5'},
-        //     {key:7,val: 'A#5'},
-        //     {key:u,val: 'B5'},
-        //     {key:i,val: 'C6'}
+        this.keyNames = [
+ 'C4',
+ 'C#4',
+'D4',
+'D#4',
+'E4',
+'F4',
+'F#4',
+'G4',
+'G#4',
+'A4',
+'A#4',
+'B4',
+'C5',
+'C#5',
+'D5',
+'D#5',
+'E5',
+'F5',
+'F#5',
+'G5',
+'G#5',
+'A5',
+'A#5',
+'B5',
+'C6'
             
-        // ]
+        ]
         
             
         
@@ -144,7 +144,7 @@ class App extends Component {
                     />
                     <Piano
                         pianoKey={this.state.key}
-                        allKeys={Object.entries(this.keyTranslation)}
+                        allKeys={this.keyNames}
                         newKeys={this.state.newKeys}
                         oldKeys={this.state.oldKeys}
                         insertKey={this._insertKey}
