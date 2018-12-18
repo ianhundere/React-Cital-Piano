@@ -69,11 +69,11 @@ class App extends Component {
         };
 
         this.keyNames = [
- 'C4',
- 'C#4',
-'D4',
-'D#4',
-'E4',
+ 'Z- C4',
+ 'S- C#4',
+'X- D4',
+'D - D#4',
+'C - E4',
 'F4',
 'F#4',
 'G4',
