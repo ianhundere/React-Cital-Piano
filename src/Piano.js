@@ -2,15 +2,23 @@ import React, { Component } from 'react';
 import Tone from 'tone';
 
 import Key from './Key';
+import './index.css';
 
 class Piano extends Component {
     constructor(props) {
         super(props);
-        const reverb = new Tone.Freeverb(0.7).toMaster();
-        const filter = new Tone.Filter(800, 'lowpass').toMaster();
-        this.synth = new Tone.PolySynth()
-            .chain(filter)
+        const reverb = new Tone.Reverb(10).toMaster();
+        const filter = new Tone.Filter(100, 'lowpass').toMaster();
+        const eq = new Tone.EQ3(-10, -10, -20).toMaster();
+        this.synth = new Tone.PolySynth({
+            oscillator: {
+                partials: [0, 2, 3, 4]
+            },
+            volume: -10
+        })
             .chain(reverb)
+            .chain(eq)
+            .chain(filter)
             .toMaster();
     }
 
@@ -44,6 +52,7 @@ class Piano extends Component {
             ));
             return (
                 <div
+                    className="container"
                     ref={node =>
                         node && node.setAttribute('touch-action', 'none')
                     }
