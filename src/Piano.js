@@ -68,6 +68,7 @@ class Piano extends Component {
                     key={key}
                     synth={this.synth}
                     note={key}
+                    active={this.state.currentNotes.includes(key)}
                     noteOn={this.noteOn}
                     noteOff={this.noteOff}
                 />

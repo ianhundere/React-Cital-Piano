@@ -13,9 +13,8 @@ body,
     height: 100%;
     width: 100%;
 }
-
-.change {
-    background-color: gray;
+.key.change {
+    background-color: hotpink;
 }
 
 .key {
