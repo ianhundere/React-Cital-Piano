@@ -6,7 +6,7 @@ import Key from './Key';
 class Piano extends Component {
     constructor(props) {
         super(props);
-        const reverb = new Tone.Freeverb(0.7).toMaster();
+        const reverb = new Tone.Reverb(0.7).toMaster();
         const filter = new Tone.Filter(800, 'lowpass').toMaster();
         this.synth = new Tone.PolySynth()
             .chain(filter)
@@ -35,6 +35,7 @@ class Piano extends Component {
             });
             const keyList = this.props.allKeys.map(key => (
                 <Key
+                
                     key={key}
                     synth={this.synth}
                     note={key}
