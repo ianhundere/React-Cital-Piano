@@ -7,6 +7,7 @@ import './index.css';
 class Piano extends Component {
     constructor(props) {
         super(props);
+
         const reverb = new Tone.Reverb(10).toMaster();
         const filter = new Tone.Filter(100, 'lowpass').toMaster();
         const eq = new Tone.EQ3(-10, -10, -20).toMaster();
@@ -43,6 +44,7 @@ class Piano extends Component {
             });
             const keyList = this.props.allKeys.map(key => (
                 <Key
+                
                     key={key}
                     synth={this.synth}
                     note={key}

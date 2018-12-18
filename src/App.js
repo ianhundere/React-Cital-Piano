@@ -35,32 +35,70 @@ class App extends Component {
             ]
         };
         this.keyTranslation = {
-            q: 'C5',
-            2: 'C#5',
-            w: 'D5',
-            3: 'D#5',
-            e: 'E5',
-            r: 'F5',
-            5: 'F#5',
-            t: 'G5',
-            6: 'G#5',
-            y: 'A5',
-            7: 'A#5',
-            u: 'B5',
-            i: 'C6',
-            z: 'C4',
-            s: 'C#4',
-            x: 'D4',
-            d: 'D#4',
-            c: 'E4',
-            v: 'F4',
-            g: 'F#4',
-            b: 'G4',
-            h: 'G#4',
-            n: 'A4',
-            j: 'A#4',
-            m: 'B4'
+            'z': 'C4',
+            's': 'C#4',
+            'x': 'D4',
+            'd': 'D#4',
+            'c': 'E4',
+            'v': 'F4',
+            'g': 'F#4',
+            'b': 'G4',
+            'h': 'G#4',
+            'n': 'A4',
+            'j': 'A#4',
+            'm': 'B4',
+            'q': 'C5',
+            '2': 'C#5',
+            'w': 'D5',
+            '3': 'D#5',
+            'e': 'E5',
+            'r': 'F5',
+            '5': 'F#5',
+            't': 'G5',
+            '6': 'G#5',
+            'y': 'A5',
+            '7': 'A#5',
+            'u': 'B5',
+            'i': 'C6',
+            
+            
+            
+            
+            
+            
         };
+
+        // this.keyNames = [
+        //     {key: 5, val: 'C4'},
+        //     {key: s, val: 'C#4'},
+        //     {key:x,val: 'D4'},
+        //     {key:d,val: 'D#4'},
+        //     {key:c,val: 'E4'},
+        //     {key:v,val: 'F4'},
+        //     {key:g,val: 'F#4'},
+        //     {key:b,val: 'G4'},
+        //     {key:h,val: 'G#4'},
+        //     {key:n,val: 'A4'},
+        //     {key:j,val: 'A#4'},
+        //     {key:m,val: 'B4'},
+        //     {key:q,val: 'C5'},
+        //     {key:2,val: 'C#5'},
+        //     {key:w,val: 'D5'},
+        //     {key:3,val: 'D#5'},
+        //     {key:e,val: 'E5'},
+        //     {key:r,val: 'F5'},
+        //     {key:5,val: 'F#5'},
+        //     {key:t,val: 'G5'},
+        //     {key:6,val: 'G#5'},
+        //     {key:y,val: 'A5'},
+        //     {key:7,val: 'A#5'},
+        //     {key:u,val: 'B5'},
+        //     {key:i,val: 'C6'}
+            
+        // ]
+        
+            
+        
     }
     componentDidMount() {
         document.addEventListener('keydown', e => {
@@ -86,7 +124,7 @@ class App extends Component {
                 oldKeys: [...this.state.oldKeys, key]
             });
             console.log();
-            // console.log(e.key);
+            console.log(e.key);
         });
     }
     render() {
@@ -106,7 +144,7 @@ class App extends Component {
                     />
                     <Piano
                         pianoKey={this.state.key}
-                        allKeys={Object.values(this.keyTranslation)}
+                        allKeys={Object.entries(this.keyTranslation)}
                         newKeys={this.state.newKeys}
                         oldKeys={this.state.oldKeys}
                         insertKey={this._insertKey}
