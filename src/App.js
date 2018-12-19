@@ -4,7 +4,6 @@ import Sheetmusic from './Sheetmusic';
 import SongList from './SongList';
 
 import './App.css';
-import Metronome from './Metronome';
 
 class App extends Component {
     constructor(props) {
@@ -42,7 +41,8 @@ class App extends Component {
                 {
                     id: 4,
                     title: 'Christmas time is here // vince guaraldi',
-                    content: 'E-C-C-A-A | E-C-C-A-A | A-F-F | E-G-E-E | D#-D-F-D| F-G',
+                    content:
+                        'E-C-C-A-A | E-C-C-A-A | A-F-F | E-G-E-E | D#-D-F-D| F-G',
                     chords: 'F/A |C/E'
                 }
             ]
