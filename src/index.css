@@ -13,6 +13,9 @@ body,
     height: 100%;
     width: 100%;
 }
+.key.change {
+    background-color: hotpink;
+}
 
 .key {
     border-top: 1px solid #3ac8da;

@@ -49,70 +49,88 @@ class App extends Component {
             ]
         };
         this.keyTranslation = {
-            'z': 'C4',
-            's': 'C#4',
-            'x': 'D4',
-            'd': 'D#4',
-            'c': 'E4',
-            'v': 'F4',
-            'g': 'F#4',
-            'b': 'G4',
-            'h': 'G#4',
-            'n': 'A4',
-            'j': 'A#4',
-            'm': 'B4',
-            'q': 'C5',
+            z: 'C4',
+            s: 'C#4',
+            x: 'D4',
+            d: 'D#4',
+            c: 'E4',
+            v: 'F4',
+            g: 'F#4',
+            b: 'G4',
+            h: 'G#4',
+            n: 'A4',
+            j: 'A#4',
+            m: 'B4',
+            q: 'C5',
             '2': 'C#5',
-            'w': 'D5',
+            w: 'D5',
             '3': 'D#5',
-            'e': 'E5',
-            'r': 'F5',
+            e: 'E5',
+            r: 'F5',
             '5': 'F#5',
-            't': 'G5',
+            t: 'G5',
             '6': 'G#5',
-            'y': 'A5',
+            y: 'A5',
             '7': 'A#5',
-            'u': 'B5',
-            'i': 'C6',
-            
-            
-            
-            
-            
-            
+            u: 'B5',
+            i: 'C6'
         };
 
         this.keyNames = [
-             'Z- C4',
-             'S- C#4',
-            'X- D4',
-            'D - D#4',
-            'C - E4',
-            'V - F4',
-            'G - F#4',
-            'B - G4',
-            'N - G#4',
-            'N - A4',
-            'J - A#4',
-            'M - B4',
-            'Q - C5',
-            '2 - C#5',
-            'W - D5',
-            '3 - D#5',
-            'E - E5',
-            'R - F5',
-            '5 - F#5',
-            'T - G5',
-            '6 - G#5',
-            'Y - A5',
-            '7 - A#5',
-            'U - B5',
-            'I - C6'
-            
-        ]
-        
-            
-        
+
+            'C4',
+            'C#4',
+            'D4',
+            'D#4',
+            'E4',
+            'F4',
+            'F#4',
+            'G4',
+            'G#4',
+            'A4',
+            'A#4',
+            'B4',
+            'C5',
+            'C#5',
+            'D5',
+            'D#5',
+            'E5',
+            'F5',
+            'F#5',
+            'G5',
+            'G#5',
+            'A5',
+            'A#5',
+            'B5',
+            'C6'
+        ];
+//  'Z- C4',
+// 'S- C#4',
+// 'X- D4',
+// 'D - D#4',
+// 'C - E4',
+// 'V - F4',
+// 'G - F#4',
+// 'B - G4',
+// 'N - G#4',
+// 'N - A4',
+// 'J - A#4',
+// 'M - B4',
+// 'Q - C5',
+// '2 - C#5',
+// 'W - D5',
+// '3 - D#5',
+// 'E - E5',
+// 'R - F5',
+// '5 - F#5',
+// 'T - G5',
+// '6 - G#5',
+// 'Y - A5',
+// '7 - A#5',
+// 'U - B5',
+// 'I - C6'
+
+// ]
     }
     componentDidMount() {
         document.addEventListener('keydown', e => {
@@ -121,7 +139,9 @@ class App extends Component {
             console.log(this.state.newKeys);
             let isNew = !this.state.newKeys.includes(key);
             if (isNew) {
-                this.setState({ newKeys: [...this.state.newKeys, key] });
+                this.setState({
+                    newKeys: [...this.state.newKeys, key]
+                });
             } else {
                 this.setState({
                     newKeys: this.state.newKeys.filter(k => {
@@ -164,6 +184,7 @@ class App extends Component {
                         oldKeys={this.state.oldKeys}
                         insertKey={this._insertKey}
                         extractKey={this._extractKey}
+                        isActive={this.state.isActive}
                     />
                 </div>
             </div>

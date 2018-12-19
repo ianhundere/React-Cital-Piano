@@ -4,10 +4,17 @@ import './index.css';
 
 class Key extends Component {
     render() {
+        const actualClassName = () => {
+            if (this.props.active) {
+                return 'key change';
+            } else {
+                return 'key';
+            }
+        };
         return (
             <div className="container">
                 <button
-                    className="key"
+                    className={actualClassName()}
                     onMouseDown={() => this.props.noteOn(this.props.note)}
                     onMouseUp={() => this.props.noteOff(this.props.note)}
                     onKeyDown={() => this.props.noteOn(this.props.note)}
