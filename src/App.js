@@ -19,19 +19,33 @@ class App extends Component {
                     id: 1,
                     title: 'jingle bells',
                     content:
-                        'E-E-E |  E-E-E |  E-G-C-D-E, F-F-F-F | F-E-E-E | E-D-D-E | D-G'
+                        'E-E-E |  E-E-E |  E-G-C-D-E, F-F-F-F | F-E-E-E | E-D-D-E | D-G',
+                    // keyboard: 
+                    //     'C-C-C | C-C-C | C-B-Z-X-C '
+                    chords: ''
                 },
 
                 {
                     id: 2,
                     title: 'deck the halls',
-                    content: 'G-F-E-D | C-D-E-C'
+                    content: 'G-F-E-D | C-D-E-C',
+                    chords: ''
                 },
                 {
                     id: 3,
                     title: 'havana',
-                    content: 'C-E-E-C-C-A'
+                    content: 'C-E-E-C-C-A',
+                    chords: ''
+                },
+
+                {
+                    id: 4,
+                    title: 'christmas time is here',
+                    content: 'E-Q-Q-N-N | E-Q-Q-N-N | N-V-V | C-B-C-C | D-X-V-X| V-B',
+                    chords: 'V/N |C/Z'
                 }
+
+
             ]
         };
         this.keyTranslation = {
@@ -69,31 +83,31 @@ class App extends Component {
         };
 
         this.keyNames = [
- 'Z- C4',
- 'S- C#4',
-'X- D4',
-'D - D#4',
-'C - E4',
-'F4',
-'F#4',
-'G4',
-'G#4',
-'A4',
-'A#4',
-'B4',
-'C5',
-'C#5',
-'D5',
-'D#5',
-'E5',
-'F5',
-'F#5',
-'G5',
-'G#5',
-'A5',
-'A#5',
-'B5',
-'C6'
+             'Z- C4',
+             'S- C#4',
+            'X- D4',
+            'D - D#4',
+            'C - E4',
+            'V - F4',
+            'G - F#4',
+            'B - G4',
+            'N - G#4',
+            'N - A4',
+            'J - A#4',
+            'M - B4',
+            'Q - C5',
+            '2 - C#5',
+            'W - D5',
+            '3 - D#5',
+            'E - E5',
+            'R - F5',
+            '5 - F#5',
+            'T - G5',
+            '6 - G#5',
+            'Y - A5',
+            '7 - A#5',
+            'U - B5',
+            'I - C6'
             
         ]
         
@@ -136,6 +150,7 @@ class App extends Component {
                         content={
                             this._getById(this.state.currentSongId).content
                         }
+                        chords={this._getById(this.state.currentSongId).chords}
                     />
                     <SongList
                         // songs={this.state.songs.map(song => song.title)}
