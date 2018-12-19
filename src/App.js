@@ -4,6 +4,7 @@ import Sheetmusic from './Sheetmusic';
 import SongList from './SongList';
 
 import './App.css';
+import Metronome from './Metronome';
 
 class App extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class App extends Component {
                     title: 'jingle bells',
                     content:
                         'E-E-E |  E-E-E |  E-G-C-D-E, F-F-F-F | F-E-E-E | E-D-D-E | D-G',
-                    // keyboard: 
+                    // keyboard:
                     //     'C-C-C | C-C-C | C-B-Z-X-C '
                     chords: ''
                 },
@@ -41,11 +42,10 @@ class App extends Component {
                 {
                     id: 4,
                     title: 'christmas time is here',
-                    content: 'E-Q-Q-N-N | E-Q-Q-N-N | N-V-V | C-B-C-C | D-X-V-X| V-B',
+                    content:
+                        'E-Q-Q-N-N | E-Q-Q-N-N | N-V-V | C-B-C-C | D-X-V-X| V-B',
                     chords: 'V/N |C/Z'
                 }
-
-
             ]
         };
         this.keyTranslation = {
@@ -77,7 +77,6 @@ class App extends Component {
         };
 
         this.keyNames = [
-
             'C4',
             'C#4',
             'D4',
@@ -104,33 +103,34 @@ class App extends Component {
             'B5',
             'C6'
         ];
-//  'Z- C4',
-// 'S- C#4',
-// 'X- D4',
-// 'D - D#4',
-// 'C - E4',
-// 'V - F4',
-// 'G - F#4',
-// 'B - G4',
-// 'N - G#4',
-// 'N - A4',
-// 'J - A#4',
-// 'M - B4',
-// 'Q - C5',
-// '2 - C#5',
-// 'W - D5',
-// '3 - D#5',
-// 'E - E5',
-// 'R - F5',
-// '5 - F#5',
-// 'T - G5',
-// '6 - G#5',
-// 'Y - A5',
-// '7 - A#5',
-// 'U - B5',
-// 'I - C6'
 
-// ]
+        this.kbNames = [
+            ('Z',
+            'S',
+            'X',
+            'D',
+            'C',
+            'V',
+            'G',
+            'B',
+            'N',
+            'N',
+            'J',
+            'M',
+            'Q',
+            '2',
+            'W',
+            '3',
+            'E',
+            'R',
+            '5',
+            'T',
+            '6',
+            'Y',
+            '7',
+            'U',
+            'I')
+        ];
     }
     componentDidMount() {
         document.addEventListener('keydown', e => {
