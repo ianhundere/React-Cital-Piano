@@ -28,19 +28,19 @@ class App extends Component {
                 {
                     id: 2,
                     title: 'Deck the halls',
-                    content: 'G-F-E-D | C-D-E-C',
+                    content: 'G-F-E-D | C-D-E-C | D-E-F-D-E | D-C-B-C',
                     chords: ''
                 },
                 {
                     id: 3,
-                    title: 'Havana (camila cabello)',
-                    content: 'C-E-E-C-C-A',
+                    title: 'Havana // camila cabello',
+                    content: 'C-E-E-C-C-A | E-D-E-F-E-D-C ',
                     chords: ''
                 },
 
                 {
                     id: 4,
-                    title: 'Christmas time is here (vince guaraldi)',
+                    title: 'Christmas time is here // vince guaraldi',
                     content: 'E-C-C-A-A | E-C-C-A-A | A-F-F | E-G-E-E | D#-D-F-D| F-G',
                     chords: 'F/A |C/E'
                 }
@@ -187,6 +187,7 @@ class App extends Component {
                         extractKey={this._extractKey}
                         isActive={this.state.isActive}
                     />
+                    <footer>Ian Hundere // Amelia Schulz</footer>
                 </div>
             </div>
         );
