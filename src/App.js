@@ -186,7 +186,6 @@ class App extends Component {
                         extractKey={this._extractKey}
                         isActive={this.state.isActive}
                     />
-                    <Metronome />
                 </div>
             </div>
         );
