@@ -18,7 +18,7 @@ class App extends Component {
             songs: [
                 {
                     id: 1,
-                    title: 'jingle bells',
+                    title: 'Jingle bells',
                     content:
                         'E-E-E |  E-E-E |  E-G-C-D-E, F-F-F-F | F-E-E-E | E-D-D-E | D-G',
                     // keyboard:
@@ -28,23 +28,22 @@ class App extends Component {
 
                 {
                     id: 2,
-                    title: 'deck the halls',
-                    content: 'G-F-E-D | C-D-E-C',
+                    title: 'Deck the halls',
+                    content: 'G-F-E-D | C-D-E-C | D-E-F-D-E | D-C-B-C',
                     chords: ''
                 },
                 {
                     id: 3,
-                    title: 'havana',
-                    content: 'C-E-E-C-C-A',
+                    title: 'Havana // camila cabello',
+                    content: 'C-E-E-C-C-A | E-D-E-F-E-D-C ',
                     chords: ''
                 },
 
                 {
                     id: 4,
-                    title: 'christmas time is here',
-                    content:
-                        'E-Q-Q-N-N | E-Q-Q-N-N | N-V-V | C-B-C-C | D-X-V-X| V-B',
-                    chords: 'V/N |C/Z'
+                    title: 'Christmas time is here // vince guaraldi',
+                    content: 'E-C-C-A-A | E-C-C-A-A | A-F-F | E-G-E-E | D#-D-F-D| F-G',
+                    chords: 'F/A |C/E'
                 }
             ]
         };
@@ -165,6 +164,7 @@ class App extends Component {
         return (
             <div className="App">
                 <div>
+                    <h1>React-Cital Piano</h1>
                     <Sheetmusic
                         title={this._getById(this.state.currentSongId).title}
                         content={
@@ -186,6 +186,7 @@ class App extends Component {
                         extractKey={this._extractKey}
                         isActive={this.state.isActive}
                     />
+                    <footer>Ian Hundere // Amelia Schulz</footer>
                 </div>
             </div>
         );
