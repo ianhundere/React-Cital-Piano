@@ -165,6 +165,7 @@ class App extends Component {
         return (
             <div className="App">
                 <div>
+                    <h1>React-Cital Piano</h1>
                     <Sheetmusic
                         title={this._getById(this.state.currentSongId).title}
                         content={
