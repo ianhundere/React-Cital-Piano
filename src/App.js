@@ -43,7 +43,7 @@ class App extends Component {
                     title: 'Christmas time is here',
                     content:
                         'E-C-C-A-A | E-C-C-A-A | A-F-F | E-G-E-E | D#-D-F-D| F-G',
-                    chords: 'F/A |C/E'
+                    chords: 'F/A C/E'
                 },
 
                 {
