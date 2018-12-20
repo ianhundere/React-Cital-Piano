@@ -8,6 +8,7 @@ const SongList = props => {
                 return (
                     <li>
                         <a
+                            className="pointer"
                             href
                             onClick={() => {
                                 console.log(song.id);

@@ -16,18 +16,17 @@ class Metronome extends Component {
             Tone.Transport.scheduleRepeat(time => {
                 this.player.start(time);
             }, '4n');
-            console.log('should be starting');
         });
     }
 
     _start = () => {
-        console.log('Starting some shit');
+        // console.log('start');
         Tone.Transport.start();
         this.player.sync().start();
     };
 
     _stop = () => {
-        console.log('Stopping some shit');
+        // console.log('stop');
         Tone.Transport.stop();
         this.player.sync().stop();
     };
@@ -41,12 +40,6 @@ class Metronome extends Component {
     render() {
         return (
             <div>
-                <button className="button" onClick={this._start}>
-                    Start
-                </button>
-                <button className="button" onClick={this._stop}>
-                    Stop
-                </button>
                 <form onSubmit={this._submitBPM}>
                     <input
                         id="bpm"
@@ -59,6 +52,12 @@ class Metronome extends Component {
                         Enter BPM
                     </button>
                 </form>
+                <button className="button" onClick={this._start}>
+                    Start
+                </button>
+                <button className="button" onClick={this._stop}>
+                    Stop
+                </button>
             </div>
         );
     }
