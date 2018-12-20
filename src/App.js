@@ -22,20 +22,20 @@ class App extends Component {
                         'E-E-E |  E-E-E |  E-G-C-D-E, F-F-F-F | F-E-E-E | E-D-D-E | D-G',
                     // keyboard:
                     //     'C-C-C | C-C-C | C-B-Z-X-C '
-                    chords: ''
+                    chords: 'C/E F/A'
                 },
 
                 {
                     id: 2,
                     title: 'Deck the halls',
                     content: 'G-F-E-D | C-D-E-C | D-E-F-D-E | D-C-B-C',
-                    chords: ''
+                    chords: 'E/G F/A'
                 },
                 {
                     id: 3,
                     title: 'Havana',
                     content: 'C-E-E-C-C-A | E-D-E-F-E-D-C ',
-                    chords: ''
+                    chords: 'A/C F/A E/G#'
                 },
 
                 {
@@ -50,7 +50,7 @@ class App extends Component {
                     id: 5,
                     title: 'Jump',
                     content: 'G4/B4/D5 | G4/C4/E5 | F4/C4/A5 | G4/B4/D5 | G4/C4/E5 | F4/C4/A5 |C4/F4/A4 | C4/E4/G4 | C4/D4/G4'
-
+                        
                 }
 
 
