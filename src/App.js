@@ -44,7 +44,16 @@ class App extends Component {
                     title: 'Christmas time is here // vince guaraldi',
                     content: 'E-C-C-A-A | E-C-C-A-A | A-F-F | E-G-E-E | D#-D-F-D| F-G',
                     chords: 'F/A |C/E'
+                },
+
+                {
+                    id: 5,
+                    title: 'Jump // van halen',
+                    content: 'G4/B4/D5 | G4/C4/E5 | F4/C4/A5 | G4/B4/D5 | G4/C4/E5 | F4/C4/A5 |C4/F4/A4 | C4/E4/G4 | C4/D4/G4'
+
                 }
+
+
             ]
         };
         this.keyTranslation = {
