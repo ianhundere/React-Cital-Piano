@@ -19,9 +19,8 @@ class App extends Component {
                     id: 1,
                     title: 'Jingle bells',
                     content:
-                        'E-E-E |  E-E-E |  E-G-C-D-E, F-F-F-F | F-E-E-E | E-D-D-E | D-G',
-                    // keyboard:
-                    //     'C-C-C | C-C-C | C-B-Z-X-C '
+                        'E-E-E | E-E-E | E-G-C-D-E, F-F-F-F | F-E-E-E | E-D-D-E | D-G',
+
                     chords: 'C/E F/A'
                 },
 
@@ -34,7 +33,7 @@ class App extends Component {
                 {
                     id: 3,
                     title: 'Havana',
-                    content: 'C-E-E-C-C-A | E-D-E-F-E-D-C ',
+                    content: 'C-E-E-C-C-A | E-D-E-F-E-D-C',
                     chords: 'A/C F/A E/G#'
                 },
 
@@ -42,7 +41,7 @@ class App extends Component {
                     id: 4,
                     title: 'Christmas time is here',
                     content:
-                        'E-C-C-A-A | E-C-C-A-A | A-F-F | E-G-E-E | D#-D-F-D| F-G',
+                        'E-C-C-A-A | E-C-C-A-A | A-F-F | E-G-E-E | D#-D-F-D | F-G',
                     chords: 'F/A C/E'
                 },
 
@@ -50,10 +49,9 @@ class App extends Component {
                     id: 5,
                     title: 'Jump',
                     content: '',
-,                    chords: 'G4/B4/D5 | G4/C4/E5 | F4/C4/A5 | G4/B4/D5 | G4/C4/E5 | F4/C4/A5 | C4/F4/A4 | C4/E4/G4 | C4/D4/G4'    
+                    chords:
+                        'G4/B4/D5 | G4/C4/E5 | F4/C4/A5 | G4/B4/D5 | G4/C4/E5 | F4/C4/A5 | C4/F4/A4 | C4/E4/G4 | C4/D4/G4'
                 }
-
-
             ]
         };
         this.keyTranslation = {
@@ -111,34 +109,6 @@ class App extends Component {
             'B5 : U',
             'C6 : I'
         ];
-
-        // this.kbNames = [
-        //     ('Z',
-        //     'S',
-        //     'X',
-        //     'D',
-        //     'C',
-        //     'V',
-        //     'G',
-        //     'B',
-        //     'N',
-        //     'N',
-        //     'J',
-        //     'M',
-        //     'Q',
-        //     '2',
-        //     'W',
-        //     '3',
-        //     'E',
-        //     'R',
-        //     '5',
-        //     'T',
-        //     '6',
-        //     'Y',
-        //     '7',
-        //     'U',
-        //     'I')
-        // ];
     }
     componentDidMount() {
         document.addEventListener('keydown', e => {
@@ -194,7 +164,7 @@ class App extends Component {
                         extractKey={this._extractKey}
                         isActive={this.state.isActive}
                     />
-                    <footer>Ian Hundere // Amelia Schulz</footer>
+                    <footer> &copy; Ian Hundere // Amelia Schulz</footer>
                 </div>
             </div>
         );
