@@ -1,54 +1,87 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Tone from 'tone';
 
 import Key from './Key';
+import './index.css';
 
-class Piano extends React.Component {
-    render() {
-        const reverb = new Tone.JCReverb(0.7).toMaster();
-        const noteOn = note => {
-            synth.triggerAttackRelease(note);
+class Piano extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentNotes: []
         };
-        const noteOff = note => {
-            synth.triggerRelease(note);
-        };
-        const synth = new Tone.PolySynth()
-            .chain(Tone.Master)
-            .chain(reverb)
+
+        // const reverb = new Tone.Freeverb(0.7).toMaster();
+        const filter = new Tone.Filter(100, 'lowpass').toMaster();
+        const eq = new Tone.EQ3(-10, -10, -20).toMaster();
+        this.synth = new Tone.PolySynth({
+            oscillator: {
+                partials: [0, 2, 3, 4]
+            },
+            volume: -10
+        })
+            // .chain(reverb)
+            .chain(eq)
+            .chain(filter)
             .toMaster();
+    }
 
-        const keys = [
-            'B3',
-            'C4',
-            'D4',
-            'E4',
-            'F4',
-            'G4',
-            'A4',
-            'B4',
-            'C5',
-            'D5',
-            'E5',
-            'F5',
-            'G5'
-        ];
-        const keyList = keys.map(key => (
-            <Key
-                key={key}
-                synth={synth}
-                note={key}
-                noteOn={noteOn}
-                noteOff={noteOff}
-            />
-        ));
-        return (
-            <div
-                ref={node => node && node.setAttribute('touch-action', 'none')}
-            >
-                {keyList}
-            </div>
+    noteOn = note => {
+        this.setState(
+            { currentNotes: [...this.state.currentNotes, note] },
+            () => {
+                this.synth.triggerAttackRelease(note);
+                console.log(note);
+            }
         );
+    };
+    noteOff = note => {
+        this.setState(
+            {
+                currentNotes: this.state.currentNotes.filter(n => {
+                    return n !== note;
+                })
+            },
+            () => {
+                this.synth.triggerRelease(note);
+                console.log('TURNED OFF A NOTE!');
+            }
+        );
+    };
+
+    render() {
+        if (this.props.oldKeys) {
+            this.props.oldKeys.forEach(key => {
+                this.noteOff(key);
+                this.props.extractKey(key);
+            });
+        }
+        if (this.props.newKeys) {
+            this.props.newKeys.forEach(key => {
+                this.noteOn(key);
+                this.props.insertKey(key);
+            });
+            const keyList = this.props.allKeys.map(key => (
+                <Key
+                    key={key}
+                    synth={this.synth}
+                    note={key}
+                    active={this.state.currentNotes.includes(key)}
+                    noteOn={this.noteOn}
+                    noteOff={this.noteOff}
+                />
+            ));
+            return (
+                <div
+                    className="container"
+                    ref={node =>
+                        node && node.setAttribute('touch-action', 'none')
+                    }
+                >
+                    {keyList}
+                </div>
+            );
+        }
     }
 }
-
 export default Piano;
