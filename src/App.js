@@ -48,7 +48,7 @@ class App extends Component {
 
                 {
                     id: 5,
-                    title: 'Jump // van halen',
+                    title: 'Jump',
                     content: 'G4/B4/D5 | G4/C4/E5 | F4/C4/A5 | G4/B4/D5 | G4/C4/E5 | F4/C4/A5 |C4/F4/A4 | C4/E4/G4 | C4/D4/G4'
 
                 }
