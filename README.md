@@ -1,13 +1,13 @@
 ## React-Cital Piano
 
 ## Synopsis
-A front-end web app built in React that uses the Tone.js framework to render musical sounds. The user is a given a variety of songs to play.
+A front-end synthesizer built using React and Tone.js. The user is given 2 octaves to play with as well as sheet music and a metronome to better help them understand music theory.
 
 ## Features
 - 2 octave keyboard
-- Keyboard controlled via mouse or QWERTY keyboard
-- Each pressed key lights up to signal what is being pressed
-- Metronome to assist the user in keeping time
+- Keys controlled via mouse or QWERTY keyboard
+- Each key held down lights up pink to inform the user what keys are pressed
+- Metronome and sheet music to assist the user in learning music theory
 
 ## Successes
 - The overall idea was quick to think of and we managed to untangle much of the logic necessary for executing it to MVP
