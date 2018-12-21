@@ -1,0 +1,26 @@
+{
+    "name": "react-cital-piano",
+    "version": 2,
+    "description": "amazingly awesome piano synth made in react",
+    "scripts": {
+        "test": "yarn run lint && best --verbose",
+        "lint": "zeit-eslint --ext .jsx,.js .",
+        "lint-staged": "git diff --diff-filter=ACMRT --cached --name-only '*.js' '*.jsx' | xargs zeit-eslint"
+    },
+    "repository": "react-cital-piano",
+    "author": "ian hundere and amelia schulz",
+    "license": "life is good",
+    "devDependencies": {
+        "@zeit/best": "0.4.3",
+        "@zeit/eslint-config-node": "0.3.0",
+        "@zeit/git-hooks": "0.1.4",
+        "ajv": "6.5.1",
+        "eslint": "4.19.1"
+    },
+    "eslintConfig": {
+        "extends": ["@zeit/eslint-config-node"]
+    },
+    "git": {
+        "pre-commit": "lint-staged"
+    }
+}
