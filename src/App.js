@@ -164,7 +164,15 @@ class App extends Component {
                         extractKey={this._extractKey}
                         isActive={this.state.isActive}
                     />
-                    <footer> &copy; Ian Hundere // Amelia Schulz</footer>
+                    <footer>
+                        <p>
+                            Note: The Web Audio API is an experimental
+                            technology which is not yet supported by all
+                            browsers. For the best experience, please use the
+                            latest versions of Google Chrome or Mozilla Firefox.
+                        </p>
+                        <h6>&copy; Ian Hundere // Amelia Schulz</h6>
+                    </footer>
                 </div>
             </div>
         );
