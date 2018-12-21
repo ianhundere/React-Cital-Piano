@@ -1,4 +1,4 @@
-## React-cital Piano
+## React-Cital Piano
 
 ## Synopsis
 A front-end web app built in React that uses the Tone.js framework to render musical sounds. The user is a given a variety of songs to play.
@@ -23,13 +23,12 @@ A front-end web app built in React that uses the Tone.js framework to render mus
 - [Tone.js](https://tonejs.github.io)
 
 ## Future Features
-- 
+- Touch capability for phones and tablets
+- Record notes for playback
 
-![GeoMindr Video](assests/geomindr.gif)
-![GeoMindr Screenshots](assests/screenshot1.png)
-![GeoMindr Screenshots](assests/screenshot2.png)
-![GeoMindr Screenshots](assests/screenshot3.png)
-![GeoMindr Screenshots](assests/screenshot4.png)
+![React-Cital-Piano Video](assests/react-cital-piano.gif)
+![React-Cital-Piano Screenshot](assests/screenshot.png)
+
 
 ## Team Members
 - Ian Hundere - [GitHub](https://github.com/ianhundere)
